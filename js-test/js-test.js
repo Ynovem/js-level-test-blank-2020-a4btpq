@@ -40,7 +40,13 @@ export function digitize(val) {
 //4;5;6`
 //output: [{a:'1', b:'2', c:'4'}, {a:'4', b:'5', c:'6'}]
 export function csvToObjArray(csv) {
-  
+    let rows = csv.split("\n");
+  let header = rows.shift().split(";");
+  return rows.map(row => row.split(";").reduce((result, value, index) => {
+      result[header[index]] = value;
+      return result;
+    }, {})
+  );
 }
 
 
