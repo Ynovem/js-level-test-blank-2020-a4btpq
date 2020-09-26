@@ -8,7 +8,13 @@
 //input: 20, output: '4 and 5'
 //input: 10, output: '5'
 export function divisible(value) {
+	const dividers = [4, 5].filter(divider => value % divider === 0);
 
+	if (dividers.length) {
+		return dividers.join(" and ");
+	}
+
+	return "none";
 }
 
 //write a function that returns a copy of an array with each element of the original multiplied by 5
