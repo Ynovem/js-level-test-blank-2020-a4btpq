@@ -58,5 +58,26 @@ export function csvToObjArray(csv) {
 //input: 3, output: Promise that resolves with 2
 //input: -11, output: Promise thet reject with an error message 'n has to be larger then -1'
 export function fibonacci(n) {
-  
+	return new Promise((resolve, reject) => {
+		if (n < 0) {
+			reject("n has to be larger then -1");
+			return;
+		}
+
+		if (n === 0) {
+			resolve(0);
+			return;
+		}
+
+		if (n === 1 || n === 2) {
+			resolve(1);
+			return;
+		}
+
+		fibonacci(n-1).then(n1 => {
+			fibonacci(n-2).then(n2 => {
+				resolve(n1 + n2);
+			})
+		})
+	})
 }
