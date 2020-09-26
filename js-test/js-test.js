@@ -15,7 +15,7 @@ export function divisible(value) {
 
 //sample input: [3, 11, 5], output: [15, 55, 25]
 export function multipliedBy5(array) {
- 
+  return [...array].map(value => value*5);
 }
 
 //Write a function to convert a specified positive number to an array of digits
