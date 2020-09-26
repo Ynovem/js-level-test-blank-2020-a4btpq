@@ -28,7 +28,7 @@ export function multipliedBy5(array) {
 
 //sapmple input: 123, output [1, 2, 3]
 export function digitize(val) {
-
+  return (val + "").split("").map(val => parseInt(val, 10));
 }
 
 //Write a function to convert a csv string to an array of objects
